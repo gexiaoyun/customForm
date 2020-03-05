@@ -1,0 +1,79 @@
+
+.form-left-module {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+}
+
+.from-list {
+    overflow: hidden;
+}
+
+.from-list-module {
+    position: relative;
+    padding: 8px;
+    margin: 8px;
+    border: 1px dashed red;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top; 
+    transition: all 0.5s;
+    position: relative;
+}
+
+.from-list-module .mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 0;
+    z-index: 3;
+}
+
+.from-list-module.active{
+    border: 1px dashed blue
+}
+
+.from-label {
+    cursor: pointer;
+    height: 30px;
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 15px;
+    background: #f4f6fc;
+    line-height: 30px;
+    margin-bottom: 10px;
+    border: 1px solid #f4f6fc;
+    transition: all 0.5s;
+}
+
+.from-label:hover {
+    border: 1px dashed #409eff;
+    color: #409eff;
+}
+
+.settingBtnSty {
+    position: absolute;
+    right: 0;
+    top: -4px;
+    z-index: 99;
+}
+
+.settingBtnSty span {
+    /* width: 12px;
+    height: 8px;
+    text-align: center;
+    line-height: 8px;
+    font-size: 14px;
+    padding: 5px; */
+    display: inline-block;
+    text-align: center;
+    line-height: 14px;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    background: #409eff;
+    color: #fff;
+}
