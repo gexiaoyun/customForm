@@ -60,9 +60,10 @@ class TableComponent extends React.Component<IntProps, IntState> {
         const { configure: { content } } = this.props
         const { tableColums } = this.state
         const dataSource: any[] = [];
-          let propsStyle = {
+        let propsStyle = {
             style: {
-                width: content.width ? `${content.width}px` : '500px',
+                width: content.width ? `${content.width}px` : '150',
+                margin: content.magrin ? `${content.margin}px` : '5px'
             }
         }
         return (

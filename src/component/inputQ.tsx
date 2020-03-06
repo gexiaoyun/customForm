@@ -11,6 +11,7 @@ class InputQuestion extends React.Component<InputProps, {}> {
         let inputStyle = {
             style: {
                 width: content.width ? `${content.width}px` : '150px',
+                margin: content.magrin ? `${content.margin}px` : '5px'
             }
         }
         return (

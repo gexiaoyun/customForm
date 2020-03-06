@@ -10,9 +10,10 @@ class SelectComponent extends React.Component<IntProps, any> {
     render () {
         const { configure: { content } } = this.props
         let propsStyle = {
-          style: {
-              width: content.width ? `${content.width}px` : '150px',
-          }
+            style: {
+                width: content.width ? `${content.width}px` : '150',
+                margin: content.magrin ? `${content.margin}px` : '5px'
+            }
         }
 
         return (

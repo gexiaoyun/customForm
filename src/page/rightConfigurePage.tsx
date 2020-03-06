@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Form, Input, Select, Checkbox } from 'antd'
 import { AddComponentType } from './edit'
 const FormItem = Form.Item
+// const FormList = Form.List
 const { Option, OptGroup } = Select
 
 export interface RightConfigurePageProps {
@@ -31,6 +32,12 @@ class RightConfigurePage extends React.Component<RightConfigurePageProps, any> {
 
     render () {
         const { configureMsg } = this.props;
+        let promtStyle = {
+          style: {
+            fontSize: '14px',
+            color: '#919191'
+          }
+        }
 
         return (
             <div>
@@ -39,13 +46,33 @@ class RightConfigurePage extends React.Component<RightConfigurePageProps, any> {
                   name="right-configure-page"
                   onFieldsChange={this.submit}
                   size='middle'
+                  initialValues={{ 
+                      width: '200',
+                      margin: '5'
+                  }}
                 >
+                  <h2 {...promtStyle}>基础设置</h2>
                     <FormItem label="名称" name="name">
                         <Input />
                     </FormItem>
-                    <FormItem label="隐藏标题" name="hideName" valuePropName="checked">
-                        <Checkbox />
+                    {
+                        configureMsg.type === 'input' && 
+                        <FormItem label="内容" name="text">
+                            <Input />
+                        </FormItem>
+                    }
+                    <FormItem label="宽度(px)" name="width">
+                        <Input />
                     </FormItem>
+                    <FormItem label="边距(px)" name="margin">
+                        <Input />
+                    </FormItem>
+                    {
+                        configureMsg.type !== 'table' && 
+                        <FormItem label="隐藏标题" name="hideName" valuePropName="checked">
+                            <Checkbox />
+                        </FormItem>
+                    }
                     <FormItem label="是否换行" name="lineBreak" valuePropName="checked">
                         <Checkbox />
                     </FormItem>
@@ -64,15 +91,6 @@ class RightConfigurePage extends React.Component<RightConfigurePageProps, any> {
                             </Select>
                         </FormItem>
                     }
-                    {
-                        configureMsg.type === 'input' && 
-                        <FormItem label="内容" name="text">
-                            <Input />
-                        </FormItem>
-                    }
-                    <FormItem label="宽度(px)" name="width">
-                        <Input />
-                    </FormItem>
                     {
                         configureMsg.type === 'table' && 
                         <div>

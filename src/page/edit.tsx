@@ -104,12 +104,19 @@ class EditModal extends React.Component<{}, State> {
     render () {
 
         const { list, showModule, rightConfigureMsg, showRightSetting, showModuleActive } = this.state;
+        let promtStyle = {
+            style: {
+              fontSize: '14px',
+              color: '#919191',
+              padding: '10px 0 0 10px'
+            }
+          }
 
         return (
             <Row>
                 <Col className="form-left-module">
                     <Card  title="组件列表">
-                        <p style={{padding: '10px 0 0 10px'}}>基础功能</p>
+                        <h2 {...promtStyle}>基础功能</h2>
                         {
                             list.map((o: any, idx: number) => {
                                 return <p className="from-label" onClick={() => {this.showNode(o.type, idx); }} key={idx}> 
@@ -154,6 +161,8 @@ class EditModal extends React.Component<{}, State> {
                     span={4} 
                     style={{
                         position: 'fixed',
+                        height: '100vh',
+                        overflowY: 'scroll',
                         top: '0',
                         right: showRightSetting ? '0' : '-100%'
                     }}>

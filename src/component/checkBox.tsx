@@ -8,9 +8,15 @@ class CheckBox extends React.Component<IntProps, {}> {
     
     render(): React.ReactNode {
         const { configure: { content } } = this.props
+        let propsStyle = {
+            style: {
+                width: content.width ? `${content.width}px` : '200px',
+                margin: content.magrin ? `${content.margin}px` : '5px'
+            }
+        }
 
         return (
-            <div>
+            <div {...propsStyle}>
                 {
                     !content.hideName && <span style={{marginRight: '10px'}}>{content.name || '题目'}:</span>
                 }{
