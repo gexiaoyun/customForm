@@ -11,7 +11,7 @@ class SelectComponent extends React.Component<IntProps, any> {
         const { configure: { content } } = this.props
         let propsStyle = {
             style: {
-                width: content.width ? `${content.width}px` : '150',
+                width: content.width ? `${content.width}px` : '200px',
                 margin: content.magrin ? `${content.margin}px` : '5px'
             }
         }
@@ -19,7 +19,11 @@ class SelectComponent extends React.Component<IntProps, any> {
         return (
             <div>
                 {
-                    !content.hideName && <span style={{marginRight: '10px'}}>{content.name || '题目'}:</span>
+                    !content.hideName && 
+                    <span style={{marginRight: '10px'}}>
+                        {content.mustFull && <i className="mustFull">*</i>}
+                        {content.name || '题目'}:
+                    </span>
                 }
                 <Select {...propsStyle}>
                   {

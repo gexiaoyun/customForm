@@ -18,7 +18,11 @@ class CheckBox extends React.Component<IntProps, {}> {
         return (
             <div {...propsStyle}>
                 {
-                    !content.hideName && <span style={{marginRight: '10px'}}>{content.name || '题目'}:</span>
+                    !content.hideName && 
+                    <span style={{marginRight: '10px'}}>
+                        {content.mustFull && <i className="mustFull">*</i>}
+                        {content.name || '题目'}:
+                    </span>
                 }{
                     Array.isArray(content.text) && content.text.length > 0 ? content.text.map((o: any, i: number) => {
                     return <Checkbox key={i}>{o.value}</Checkbox>

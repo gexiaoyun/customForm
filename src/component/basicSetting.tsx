@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { Form, Input, Select, Checkbox } from 'antd'
-import { AddComponentType } from './edit'
+import { Form, Input, Select, Checkbox, Row, Col } from 'antd'
+import { AddComponentType } from '../page/edit'
+// import { IntBasicSettingState } from '../redux/reducerState/basicSettingReducer'
 const FormItem = Form.Item
-// const FormList = Form.List
 const { Option, OptGroup } = Select
 
 export interface RightConfigurePageProps {
@@ -10,7 +10,7 @@ export interface RightConfigurePageProps {
     getRightSettingParame: (param: any) => void;
 }
 
-class RightConfigurePage extends React.Component<RightConfigurePageProps, any> {
+class RightConfigurePage extends React.Component<any, any> {
 
     formRef:any = React.createRef();
 
@@ -26,7 +26,6 @@ class RightConfigurePage extends React.Component<RightConfigurePageProps, any> {
         const { configureMsg: { key }, getRightSettingParame} = this.props;
         let value = this.formRef.getFieldsValue();
         value.key = key;
-        console.log(value)
         getRightSettingParame(value)
     }
 
@@ -61,25 +60,10 @@ class RightConfigurePage extends React.Component<RightConfigurePageProps, any> {
                             <Input />
                         </FormItem>
                     }
-                    <FormItem label="宽度(px)" name="width">
-                        <Input />
-                    </FormItem>
-                    <FormItem label="边距(px)" name="margin">
-                        <Input />
-                    </FormItem>
-                    {
-                        configureMsg.type !== 'table' && 
-                        <FormItem label="隐藏标题" name="hideName" valuePropName="checked">
-                            <Checkbox />
-                        </FormItem>
-                    }
-                    <FormItem label="是否换行" name="lineBreak" valuePropName="checked">
-                        <Checkbox />
-                    </FormItem>
                     {
                         (configureMsg.type === 'checkbox' || configureMsg.type === 'select') &&
                         <FormItem label="内容(可多选)" name="text">
-                            <Select style={{width: "200px"}} mode="multiple" labelInValue={true}>
+                            <Select style={{width: "170px"}} mode="multiple" labelInValue={true}>
                                 <Option value="jack">jack</Option>
                                 <Option value="lucy">lucy</Option>
                                 <Option value="jack1">jack1</Option>
@@ -95,7 +79,7 @@ class RightConfigurePage extends React.Component<RightConfigurePageProps, any> {
                         configureMsg.type === 'table' && 
                         <div>
                             <FormItem label="表格头部(多选)" name="tableHead">
-                            <Select style={{width: "200px"}} mode="multiple" labelInValue={true}>
+                            <Select style={{width: "170px"}} mode="multiple" labelInValue={true}>
                                 <OptGroup label="基础信息">
                                     <Option value="createTime">创建时间</Option>
                                     <Option value="createName">创建人</Option>
@@ -110,6 +94,39 @@ class RightConfigurePage extends React.Component<RightConfigurePageProps, any> {
                             </FormItem>
                         </div>
                     }
+                    <FormItem label="宽度(px)" name="width">
+                        <Input />
+                    </FormItem>
+                    <FormItem label="边距(px)" name="margin">
+                        <Input />
+                    </FormItem>
+                    <Row>
+                        {
+                            configureMsg.type !== 'table' && 
+                            <Col span={12}>
+                                {
+                                   <FormItem label="隐藏标题" name="hideName" valuePropName="checked">
+                                        <Checkbox />
+                                    </FormItem>
+                                }
+                            </Col>
+                        }
+                        <Col span={12}>
+                            <FormItem label="隐藏题目" name="hideSubject" valuePropName="checked">
+                                <Checkbox />
+                            </FormItem>
+                        </Col>
+                        <Col span={12}>
+                            <FormItem label="是否换行" name="lineBreak" valuePropName="checked">
+                                <Checkbox />
+                            </FormItem>
+                        </Col>
+                        <Col span={12}>
+                            <FormItem label="是否必填" name="mustFull" valuePropName="checked">
+                                <Checkbox />
+                            </FormItem>
+                        </Col>
+                    </Row>
                 </Form>
             </div>
         )

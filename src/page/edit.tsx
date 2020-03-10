@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Row, Col, Card } from 'antd'
 import { componentModules } from '../component'
 import RightSetting from '../component/rightSetting'
-import RightConfigurePage from './rightConfigurePage'
+import BasicSetting from '../component/containers/basicSettingContainers'
 import '../css/edit.css'
 
 export interface AddComponentType {
@@ -102,7 +102,6 @@ class EditModal extends React.Component<{}, State> {
     }
 
     render () {
-
         const { list, showModule, rightConfigureMsg, showRightSetting, showModuleActive } = this.state;
         let promtStyle = {
             style: {
@@ -111,6 +110,8 @@ class EditModal extends React.Component<{}, State> {
               padding: '10px 0 0 10px'
             }
           }
+
+        console.log(showModule)
 
         return (
             <Row>
@@ -142,7 +143,7 @@ class EditModal extends React.Component<{}, State> {
                                     draggable={true}
                                     className={`from-list-module ${showModuleActive === index ? 'active' : '' }`}
                                 >
-                                    <p className="mask"></p>
+                                    <p className={`mask ${val.content.hideSubject ? 'prohibit' : ''}`}></p>
                                     {this.nodeList(val, index)}
                                     <RightSetting
                                         index={index}
@@ -167,7 +168,8 @@ class EditModal extends React.Component<{}, State> {
                         right: showRightSetting ? '0' : '-100%'
                     }}>
                     <Card  title="参数设置">
-                        <RightConfigurePage
+                        {/* // @ts-ignore */}
+                        <BasicSetting
                             configureMsg={rightConfigureMsg} 
                             getRightSettingParame={this.getRightSettingParame}
                         />

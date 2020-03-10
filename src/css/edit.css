@@ -32,8 +32,18 @@
     z-index: 3;
 }
 
+.from-list-module .mask.prohibit {
+    background-color: rgba(0,0,0,.5);
+}
+
 .from-list-module.active{
     border: 1px dashed blue
+}
+
+.from-list-module .mustFull {
+    color: red;
+    display: inline-block;
+    margin-right: 5px;
 }
 
 .from-label {

@@ -1,0 +1,10 @@
+enum basicSettingKey {
+    BASIC_NAME = 'BASIC_NAME',
+    BASIC_CON = 'BASIC_CON',
+    BASIC_WIDTH = 'BASIC_WIDTH',
+    BASIC_MARGIN = 'BASIC_MARGIN',
+    BASIC_IS_SHOW_LABEL = 'BASIC_IS_SHOW_LABEL' ,
+    BASIC_IS_LINE_BREAK = 'BASIC_IS_LINE_BREAK'
+}
+
+export default basicSettingKey
